@@ -12,10 +12,14 @@ const savedCurrentTime = (event) => {
 player.on('timeupdate', throttle(savedCurrentTime, 1000));
 
 const savedTime = localStorage.getItem('videoplayer-current-time');
+
 // const savedTimeNum = Number.savedTime;
 // console.log(savedTimeNum)
 
-player.setCurrentTime(savedTime);
+if (savedTime) {
+    player.setCurrentTime(savedTime || 0);
+};
+
 
 
 
